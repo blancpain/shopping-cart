@@ -7,8 +7,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:vitest/recommended',
     'plugin:vitest-globals/recommended',
-    'prettier',
     'airbnb',
+    'prettier',
   ],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
@@ -17,5 +17,14 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: false,
+        packageDir: './',
+      },
+    ],
   },
 };
