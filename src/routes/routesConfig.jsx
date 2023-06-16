@@ -18,7 +18,10 @@ const routesConfig = [
     ),
     children: [
       { path: '/', element: <Home /> },
-      { path: '/shop', element: <Shop /> },
+      {
+        path: '/shop',
+        element: <Shop />,
+      },
       { path: '/contact', element: <Contact /> },
     ],
   },

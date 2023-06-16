@@ -1,0 +1,76 @@
+{
+  "watches": [
+    {
+      "id": 1,
+      "model": "Blancpain Fifty Fathoms",
+      "price": "€24,000",
+      "winding": "Automatic",
+      "caliber": "13P8",
+      "category": "Diver",
+      "image": "../assets/watches/fifty_fathoms.avif"
+    },
+    {
+      "id": 2,
+      "model": "Blancpain Air Command",
+      "price": "€18,000",
+      "winding": "Automatic",
+      "caliber": "F388B",
+      "category": "Chronograph",
+      "image": "../assets/watches/air_command.avif"
+    },
+    {
+      "id": 3,
+      "model": "Blancpain Villeret",
+      "price": "€32,000",
+      "winding": "Automatic",
+      "caliber": "6054F.4",
+      "category": "Dress",
+      "image": "../assets/watches/villeret.avif"
+    },
+    {
+      "id": 4,
+      "model": "Rolex Submariner",
+      "price": "€9,050",
+      "winding": "Automatic",
+      "caliber": "3230",
+      "category": "Diver",
+      "image": "../assets/watches/submariner.avif"
+    },
+    {
+      "id": 5,
+      "model": "Rolex Yacht-Master 42",
+      "price": "€13,000",
+      "winding": "Automatic",
+      "caliber": "3235",
+      "category": "Diver",
+      "image": "../assets/watches/yacht_master.avif"
+    },
+    {
+      "id": 6,
+      "model": "Vacheron Constantin Historiques Triple Calendrier",
+      "price": "€64,000",
+      "winding": "Manual",
+      "caliber": "4400QC",
+      "category": "Dress",
+      "image": "../assets/watches/historiques.avif"
+    },
+    {
+      "id": 7,
+      "model": "Vacheron Constantin Retrograde Day-Date",
+      "price": "€44,000",
+      "winding": "Automatic",
+      "caliber": "2460 R31R7/3",
+      "category": "Dress",
+      "image": "../assets/watches/retrograde.avif"
+    },
+    {
+      "id": 8,
+      "model": "Breguet Hora Mundi 5727",
+      "price": "€36,000",
+      "winding": "Automatic",
+      "caliber": "77F0",
+      "category": "Dress",
+      "image": "../assets/watches/hora_mundi.avif"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
@@ -7,14 +7,14 @@ export default function Navbar() {
       as="nav"
       bg="gray.200"
       p="0 20px 0 20px"
-      minH="80px"
-      fontSize="2rem"
+      minH="70px"
+      fontSize="1.7rem"
       justify="space-between"
       align="center"
       gap="8px"
     >
-      <NavLink to="/">Watch Store</NavLink>
-      <NavLink to="/shop">Shops</NavLink>
+      <NavLink to="/">WatchCo</NavLink>
+      <NavLink to="/shop">Shop</NavLink>
       <NavLink to="/contact">Contact</NavLink>
     </Flex>
   );

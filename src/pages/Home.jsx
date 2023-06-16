@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import watch from '../assets/watch.mp4';
+import introVideo from '../assets/introVideo.mp4';
 
 export default function Home() {
   const videoStyles = {
@@ -16,7 +16,7 @@ export default function Home() {
       loop
       muted
       sx={videoStyles}
-      src={watch}
+      src={introVideo}
       alt="Video of watch mechanism"
     />
   );
