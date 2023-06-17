@@ -20,6 +20,7 @@ export default function Navbar() {
       minH="45px"
       justify="space-between"
       align="center"
+      gap="20px"
     >
       <Link
         as={NavLink}
@@ -36,6 +37,17 @@ export default function Navbar() {
         </HStack>
       </Link>
       <HStack gap="50px">
+        <Link
+          as={NavLink}
+          to="/"
+          _activeLink={{ color: 'yellow.700' }}
+          fontSize="20px"
+          fontWeight="bold"
+          color="gray.300"
+          _hover={hoverStyle}
+        >
+          Home
+        </Link>
         <Link
           as={NavLink}
           to="/shop"
