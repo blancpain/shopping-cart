@@ -17,6 +17,7 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
+    'react/prop-types': 0,
     'import/no-extraneous-dependencies': [
       'error',
       {

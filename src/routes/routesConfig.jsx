@@ -1,30 +1,15 @@
-import { Flex, Box } from '@chakra-ui/react';
-import { Outlet } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import { Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import Shop from '../pages/Shop';
 import Contact from '../pages/Contact';
+import RootLayout from '../layouts/RootLayout';
 
-const routesConfig = [
-  {
-    path: '/',
-    element: (
-      <Flex flexDirection="column" h="100vh" overflow="hidden">
-        <Navbar />
-        <Box as="main" flexGrow="1">
-          <Outlet />
-        </Box>
-      </Flex>
-    ),
-    children: [
-      { path: '/', element: <Home /> },
-      {
-        path: '/shop',
-        element: <Shop />,
-      },
-      { path: '/contact', element: <Contact /> },
-    ],
-  },
-];
-
-export default routesConfig;
+export default function routesConfig() {
+  return (
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/contact" element={<Contact />} />
+    </Route>
+  );
+}

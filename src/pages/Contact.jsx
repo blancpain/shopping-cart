@@ -1,5 +1,11 @@
-export default function Contact() {
-  return <div>Contact</div>;
-}
+import { ScaleFade, Box } from '@chakra-ui/react';
 
-// Just a simple Contact page - maybe one image? see PP site
+export default function Contact() {
+  return (
+    <ScaleFade initialScale={0.1} in>
+      <Box p="40px" color="white" mt="4" bg="teal.500" rounded="md" shadow="md">
+        Welcome
+      </Box>
+    </ScaleFade>
+  );
+}
