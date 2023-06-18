@@ -16,16 +16,15 @@ export default function Navbar() {
     <Flex
       as="nav"
       bg="blackAlpha.900"
-      p="0 30px 0 30px"
-      minH="45px"
+      p={{ base: '10px', md: '0 30px 0 30px' }}
+      minH={{ base: '110px', md: '55px' }}
       justify="space-between"
       align="center"
-      gap="20px"
+      flexDir={{ base: 'column', md: 'row' }}
     >
       <Link
         as={NavLink}
         to="/"
-        _activeLink={{ color: 'yellow.700' }}
         fontSize="28px"
         fontWeight="bold"
         color="gray.300"
@@ -36,7 +35,7 @@ export default function Navbar() {
           <Text>WatchCo</Text>
         </HStack>
       </Link>
-      <HStack gap="50px">
+      <HStack gap={{ base: '20px', md: '50px' }}>
         <Link
           as={NavLink}
           to="/"

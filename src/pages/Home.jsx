@@ -30,8 +30,12 @@ export default function Home() {
           size="lg"
           border="2px solid white"
           p="25px"
-          fontSize="4xl"
-          letterSpacing="3px"
+          fontSize={{
+            base: 'xl',
+            md: '3xl',
+            lg: '4xl',
+          }}
+          letterSpacing={{ base: '0px', md: '3px' }}
           _hover={{
             border: 'none',
             filter: 'opacity(65%)',

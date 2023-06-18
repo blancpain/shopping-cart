@@ -3,7 +3,7 @@
     {
       "id": 1,
       "model": "Blancpain Fifty Fathoms",
-      "price": "€24,000",
+      "price": "24000",
       "winding": "Automatic",
       "caliber": "13P8",
       "category": "Diver",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "model": "Blancpain Air Command",
-      "price": "€18,000",
+      "price": "18000",
       "winding": "Automatic",
       "caliber": "F388B",
       "category": "Chronograph",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "model": "Blancpain Villeret",
-      "price": "€32,000",
+      "price": "32000",
       "winding": "Automatic",
       "caliber": "6054F.4",
       "category": "Dress",
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "model": "Rolex Submariner",
-      "price": "€9,050",
+      "price": "9050",
       "winding": "Automatic",
       "caliber": "3230",
       "category": "Diver",
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "model": "Rolex Yacht-Master 42",
-      "price": "€13,000",
+      "price": "13000",
       "winding": "Automatic",
       "caliber": "3235",
       "category": "Diver",
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "model": "Vacheron Constantin Historiques",
-      "price": "€64,000",
+      "price": "64000",
       "winding": "Manual",
       "caliber": "4400QC",
       "category": "Dress",
@@ -57,7 +57,7 @@
     {
       "id": 7,
       "model": "Vacheron Constantin Retrograde",
-      "price": "€44,000",
+      "price": "44000",
       "winding": "Automatic",
       "caliber": "2460 R31R7/3",
       "category": "Dress",
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "model": "Vacheron Constantin Tourbillon",
-      "price": "€66,000",
+      "price": "66000",
       "winding": "Automatic",
       "caliber": "2160/1",
       "category": "Dress",
