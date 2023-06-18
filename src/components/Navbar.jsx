@@ -9,7 +9,7 @@ export default function Navbar() {
     filter: 'opacity(65%)',
   };
 
-  // Chakra UI hooks for transitions
+  // Chakra UI hook to keep track of drawer state
   const { isOpen: isOpenDrawer, onOpen: openDrawer, onClose: closeDrawer } = useDisclosure();
 
   return (
