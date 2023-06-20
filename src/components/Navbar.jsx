@@ -20,6 +20,7 @@ import ShoppingCart from './ShoppingCart';
 
 export default function Navbar() {
   const { items } = useContext(CartContext);
+  const fullQuantity = items.reduce((accumulator, object) => accumulator + object.quantity, 0);
 
   const hoverStyle = {
     filter: 'opacity(65%)',
@@ -98,7 +99,7 @@ export default function Navbar() {
                 fontWeight="bold"
                 color="white"
               >
-                {items.length}
+                {fullQuantity < 1000 ? fullQuantity : '1k+'}
               </TagLabel>
               <TagRightIcon as={FiShoppingCart} />
             </Tag>

@@ -1,4 +1,4 @@
-import { useParams, useLoaderData } from 'react-router-dom';
+import { useParams, useLoaderData, NavLink } from 'react-router-dom';
 import {
   Container,
   SimpleGrid,
@@ -52,11 +52,15 @@ export default function WatchDetails() {
         separator={<ChevronRightIcon color="gray.500" />}
       >
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink as={NavLink} to="/">
+            Home
+          </BreadcrumbLink>
         </BreadcrumbItem>
 
         <BreadcrumbItem>
-          <BreadcrumbLink href="/shop">Shop</BreadcrumbLink>
+          <BreadcrumbLink as={NavLink} to="/shop">
+            Shop
+          </BreadcrumbLink>
         </BreadcrumbItem>
 
         <BreadcrumbItem isCurrentPage>
