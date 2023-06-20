@@ -1,10 +1,26 @@
-import { Flex, Text, Button, Icon, HStack, useDisclosure, Link } from '@chakra-ui/react';
+import { useContext } from 'react';
+import {
+  Flex,
+  Text,
+  Button,
+  Icon,
+  HStack,
+  useDisclosure,
+  Link,
+  Tag,
+  TagRightIcon,
+  TagLabel,
+  Box,
+} from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
 import { TbTopologyStar3 } from 'react-icons/tb';
+import CartContext from '../ShoppingCartContext';
 import ShoppingCart from './ShoppingCart';
 
 export default function Navbar() {
+  const { items } = useContext(CartContext);
+
   const hoverStyle = {
     filter: 'opacity(65%)',
   };
@@ -69,8 +85,26 @@ export default function Navbar() {
         >
           Contact
         </Link>
-        <Button size="sm" colorScheme="gray" onClick={openDrawer} _hover={hoverStyle}>
-          <Icon as={FiShoppingCart} />
+        <Button size="sm" onClick={openDrawer} _hover={hoverStyle}>
+          {items.length > 0 ? (
+            <Tag>
+              <TagLabel
+                as={Box}
+                borderRadius="full"
+                bg="blackAlpha.900"
+                p="0.2rem"
+                fontSize="xs"
+                minW="1.3rem"
+                fontWeight="bold"
+                color="white"
+              >
+                {items.length}
+              </TagLabel>
+              <TagRightIcon as={FiShoppingCart} />
+            </Tag>
+          ) : (
+            <Icon as={FiShoppingCart} />
+          )}
         </Button>
         {isOpenDrawer && <ShoppingCart onClose={closeDrawer} isOpen={isOpenDrawer} />}
       </HStack>

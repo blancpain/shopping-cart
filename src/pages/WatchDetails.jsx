@@ -16,11 +16,13 @@ import {
   BreadcrumbLink,
   Button,
 } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { IoLogoEuro } from 'react-icons/io5';
 import { GoGear } from 'react-icons/go';
 import { BsWatch } from 'react-icons/bs';
 import data from '../data/db.json';
+import CartContext from '../ShoppingCartContext';
 
 function Feature({ text, icon, iconBg }) {
   return (
@@ -38,6 +40,8 @@ export default function WatchDetails() {
   const fullWatchData = useLoaderData();
   const selectedWatch = fullWatchData.data.find((watch) => watch.id === Number(id));
   const convertedWatchImageURL = `../${selectedWatch.imageURL}`;
+
+  const { addToCart } = useContext(CartContext);
 
   return (
     <GridItem colSpan={{ base: 'auto', md: '7' }} rowSpan={{ base: '16', md: 'auto' }}>
@@ -98,7 +102,18 @@ export default function WatchDetails() {
                 text={selectedWatch.winding}
               />
             </Stack>
-            <Button fontWeight="bold" fontSize="20px">
+            <Button
+              fontWeight="bold"
+              fontSize="20px"
+              onClick={() =>
+                addToCart(
+                  selectedWatch.id,
+                  selectedWatch.model,
+                  selectedWatch.price,
+                  selectedWatch.imageURL,
+                )
+              }
+            >
               Add to cart
             </Button>
           </Stack>

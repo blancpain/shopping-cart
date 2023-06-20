@@ -7,7 +7,7 @@ import {
   DrawerCloseButton,
 } from '@chakra-ui/react';
 
-export default function ShoppingCart({ onClose, isOpen }) {
+export default function ShoppingCart({ onClose, isOpen, val }) {
   return (
     <Drawer placement="right" onClose={onClose} isOpen={isOpen} size="lg">
       <DrawerOverlay />
@@ -16,11 +16,7 @@ export default function ShoppingCart({ onClose, isOpen }) {
         <DrawerHeader borderBottomWidth="1px" fontSize="3xl">
           Your shopping cart
         </DrawerHeader>
-        <DrawerBody>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </DrawerBody>
+        <DrawerBody>{val}</DrawerBody>
       </DrawerContent>
     </Drawer>
   );
