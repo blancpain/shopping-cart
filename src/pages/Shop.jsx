@@ -1,19 +1,18 @@
 /* eslint-disable jsx-a11y/aria-proptypes */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import {
   ScaleFade,
-  SimpleGrid,
+  Grid,
   GridItem,
   Flex,
   Heading,
-  List,
-  ListItem,
   RangeSlider,
   RangeSliderTrack,
   RangeSliderFilledTrack,
   RangeSliderThumb,
   RangeSliderMark,
+  Button,
 } from '@chakra-ui/react';
 import data from '../data/db.json';
 import Card from '../components/Card';
@@ -21,11 +20,22 @@ import Card from '../components/Card';
 export default function Shop() {
   const watches = useLoaderData();
   const [priceSliderValue, setPriceSliderValue] = useState([70000]);
-  const [selectedWatches, setSelectedWatches] = useState([]);
+  const allWatches = useMemo(() => [...watches.data], [watches.data]);
+  const [filteredWatches, setFilteredWatches] = useState([...allWatches]);
+  const [watchCategory, setWatchCategory] = useState('');
+
+  // ?optional add another state to track "active" for buttons; it should stick when a button is pressed and be cleared only when "all products" is selected
 
   useEffect(() => {
-    setSelectedWatches(watches.data.filter((watch) => Number(watch.price) <= priceSliderValue));
-  }, [priceSliderValue, watches.data]);
+    // first we check if a category is applied because if not we want to show all watches
+    setFilteredWatches(
+      allWatches.filter((watch) =>
+        watchCategory === ''
+          ? Number(watch.price) <= priceSliderValue
+          : watchCategory === watch.category && Number(watch.price) <= priceSliderValue,
+      ),
+    );
+  }, [allWatches, priceSliderValue, watchCategory]);
 
   return (
     <>
@@ -36,13 +46,63 @@ export default function Shop() {
         bg="gray.100"
         minH={{ base: 'auto', md: '100vh' }}
       >
-        <Flex p="30px" flexDirection="column" gap="50px">
-          <Heading size="lg">All products</Heading>
+        <Flex p="30px" flexDirection="column" gap="40px" alignItems="center" textAlign="center">
+          <Heading
+            as={Button}
+            size="lg"
+            _hover={{ bg: 'transparent' }}
+            onClick={() => setWatchCategory('')}
+          >
+            All products
+          </Heading>
 
-          <List spacing={3}>
-            <ListItem>Diver watches</ListItem>
-            <ListItem>Dress watches</ListItem>
-          </List>
+          <Button
+            w="100%"
+            onClick={(e) => setWatchCategory(e.target.id)}
+            id="Diver"
+            _active={{
+              bg: '#dddfe2',
+              borderColor: '#bec3c9',
+              boxShadow: '0 0 1px 2px rgba(0, 0, 0, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+            }}
+            _focus={{
+              boxShadow: '0 0 1px 2px rgba(0, 0, 0, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+            }}
+          >
+            Diver watches
+          </Button>
+
+          <Button
+            w="100%"
+            id="Dress"
+            onClick={(e) => setWatchCategory(e.target.id)}
+            _active={{
+              bg: '#dddfe2',
+              borderColor: '#bec3c9',
+            }}
+            _focus={{
+              boxShadow: '0 0 1px 2px rgba(0, 0, 0, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+            }}
+          >
+            Dress watches
+          </Button>
+
+          <Button
+            w="100%"
+            mb="1em"
+            onClick={(e) => setWatchCategory(e.target.id)}
+            id="Chronograph"
+            _active={{
+              bg: '#dddfe2',
+              borderColor: '#bec3c9',
+              boxShadow: '0 0 1px 2px rgba(0, 0, 0, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+            }}
+            _focus={{
+              boxShadow: '0 0 1px 2px rgba(0, 0, 0, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+            }}
+          >
+            Chronograhs
+          </Button>
 
           <RangeSlider
             aria-label={['min', 'max']}
@@ -89,19 +149,25 @@ export default function Shop() {
       </GridItem>
 
       <GridItem as="main" colSpan={{ base: 'auto', md: '6' }} rowSpan={{ base: '15', md: 'auto' }}>
-        <SimpleGrid p="20px" spacing={15} minChildWidth="300px">
-          {watches.data &&
-            selectedWatches.map((watch) => (
+        <Grid
+          p="20px"
+          gap={15}
+          templateColumns="repeat(auto-fill, 300px)"
+          justifyContent={{ base: 'center', md: 'start' }}
+        >
+          {allWatches &&
+            filteredWatches.map((watch) => (
               <ScaleFade key={watch.id} in initialScale={0.1}>
                 <Card key={watch.id} watchData={watch} />
               </ScaleFade>
             ))}
-        </SimpleGrid>
+        </Grid>
       </GridItem>
     </>
   );
 }
 
 // below is done for practice just to test out React Router loaders
-// the below func is passed as a loader in the relevant Route in RoutesConfig.jsx
+// technically not needed as we can directly access the JSON file
+// the below func is also passed as a loader in the relevant Route in RoutesConfig.jsx
 export const watchLoader = () => data;
