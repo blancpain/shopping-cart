@@ -24,8 +24,6 @@ export default function Shop() {
   const [filteredWatches, setFilteredWatches] = useState([...allWatches]);
   const [watchCategory, setWatchCategory] = useState('');
 
-  // ?optional add another state to track "active" for buttons; it should stick when a button is pressed and be cleared only when "all products" is selected
-
   useEffect(() => {
     // first we check if a category is applied because if not we want to show all watches
     setFilteredWatches(
