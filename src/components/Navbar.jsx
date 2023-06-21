@@ -88,7 +88,7 @@ export default function Navbar() {
         </Link>
         <Button size="sm" onClick={openDrawer} _hover={hoverStyle} data-testid="shopping-cart-btn">
           {items.length > 0 ? (
-            <Tag>
+            <Tag _active={{ backgroundColor: 'gray.300' }}>
               <TagLabel
                 as={Box}
                 borderRadius="full"
