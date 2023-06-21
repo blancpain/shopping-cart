@@ -21,8 +21,6 @@ export default function ShoppingCartItem({
   watchPrice,
   quantity,
 }) {
-  const convertedWatchImageURL = `../${watchImage}`;
-
   const { addToCart, removeFromCart, updateQuantity } = useContext(CartContext);
   const buttonClickHandler = (e) => {
     const { name } = e.target;
@@ -55,7 +53,7 @@ export default function ShoppingCartItem({
     <CardContainer maxW="sm" m="0.5rem">
       <CardBody as={Flex}>
         <Image
-          src={convertedWatchImageURL}
+          src={watchImage}
           alt="Watch"
           borderRadius="lg"
           boxSize="10em"

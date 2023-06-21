@@ -39,7 +39,6 @@ export default function WatchDetails() {
   const { id } = useParams();
   const fullWatchData = useLoaderData();
   const selectedWatch = fullWatchData.data.find((watch) => watch.id === Number(id));
-  const convertedWatchImageURL = `../${selectedWatch.imageURL}`;
 
   const { addToCart } = useContext(CartContext);
 
@@ -125,7 +124,7 @@ export default function WatchDetails() {
             <Image
               rounded="md"
               alt="feature image"
-              src={convertedWatchImageURL}
+              src={selectedWatch.imageURL}
               objectFit="cover"
             />
           </Flex>
