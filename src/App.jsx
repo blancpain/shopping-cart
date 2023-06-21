@@ -1,10 +1,10 @@
-import { createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { createHashRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import { CartProvider } from './ShoppingCartContext';
 
 // routes
 import routesConfig from './routes/RoutesConfig';
 
-const router = createBrowserRouter(createRoutesFromElements(routesConfig()));
+const router = createHashRouter(createRoutesFromElements(routesConfig()));
 
 function App() {
   return (
