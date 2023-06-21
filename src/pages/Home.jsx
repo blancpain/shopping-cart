@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { Box, Button, AbsoluteCenter } from '@chakra-ui/react';
-import introVideo from '../assets/introVideo.mp4';
 
 export default function Home() {
   const videoStyles = {
@@ -18,7 +17,7 @@ export default function Home() {
         loop
         muted
         sx={videoStyles}
-        src={introVideo}
+        src="assets/introVideo.mp4"
         alt="Video of watch mechanism"
       />
       <AbsoluteCenter>
