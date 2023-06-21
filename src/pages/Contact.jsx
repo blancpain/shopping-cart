@@ -10,13 +10,10 @@ import {
   useColorModeValue,
   VStack,
   Fade,
-  List,
-  ListItem,
-  ListIcon,
   Text,
 } from '@chakra-ui/react';
-import { BsGithub, BsLinkedin, BsFillTelephoneFill, BsTwitter } from 'react-icons/bs';
-import { MdEmail, MdOutlineEmail } from 'react-icons/md';
+import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { MdEmail } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 
 export default function Contact() {
@@ -24,32 +21,21 @@ export default function Contact() {
 
   return (
     <Fade in>
-      <Flex
-        bg={useColorModeValue('gray.100', 'gray.900')}
-        align="top"
-        justify="center"
-        id="contact"
-        h="100vh"
-        py="3rem"
-      >
+      <Flex align="top" justify="center" id="contact" py="3rem">
         <Box borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }} p={{ base: 5, lg: 16 }}>
           <Box>
             <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
               <Heading
                 fontSize={{
                   base: '4xl',
-                  md: '5xl',
+                  md: '6xl',
                 }}
               >
                 Get in Touch
               </Heading>
 
-              <Stack spacing={{ base: 4, md: 8, lg: 20 }} direction={{ base: 'column', md: 'row' }}>
-                <Stack
-                  align="center"
-                  justify="space-around"
-                  direction={{ base: 'row', md: 'column' }}
-                >
+              <Stack spacing={{ base: 4, md: 8, lg: 20 }} direction={{ base: 'row', md: 'row' }}>
+                <Stack align="center" justify="space-around" direction={{ base: 'row', md: 'row' }}>
                   <Tooltip
                     label={hasCopied ? 'Email Copied!' : 'Copy Email'}
                     closeOnClick={false}
@@ -113,31 +99,13 @@ export default function Contact() {
                     />
                   </Link>
                 </Stack>
-
-                <Box
-                  bg={useColorModeValue('white', 'gray.700')}
-                  borderRadius="lg"
-                  p={8}
-                  color={useColorModeValue('gray.700', 'whiteAlpha.900')}
-                  shadow="base"
-                  minH="250px"
-                >
-                  <VStack spacing={5}>
-                    <List spacing={16}>
-                      <ListItem>
-                        <ListIcon as={BsFillTelephoneFill} color="blackAlpha.800" />
-                        0888-888-888
-                      </ListItem>
-                      <ListItem>
-                        <Text fontWeight="bold" fontSize="xl">
-                          WatchCo,
-                        </Text>
-                        <Text>Sofia Bulgaria</Text>
-                      </ListItem>
-                    </List>
-                  </VStack>
-                </Box>
               </Stack>
+              <VStack>
+                <Text fontWeight="bold" fontSize="2xl">
+                  WatchCo
+                </Text>
+                <Text>Sofia, Bulgaria</Text>
+              </VStack>
             </VStack>
           </Box>
         </Box>

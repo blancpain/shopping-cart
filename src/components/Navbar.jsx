@@ -86,7 +86,7 @@ export default function Navbar() {
         >
           Contact
         </Link>
-        <Button size="sm" onClick={openDrawer} _hover={hoverStyle}>
+        <Button size="sm" onClick={openDrawer} _hover={hoverStyle} data-testid="shopping-cart-btn">
           {items.length > 0 ? (
             <Tag>
               <TagLabel
@@ -98,6 +98,7 @@ export default function Navbar() {
                 minW="1.3rem"
                 fontWeight="bold"
                 color="white"
+                data-testid="navbar-cart-quantity"
               >
                 {fullQuantity < 1000 ? fullQuantity : '1k+'}
               </TagLabel>

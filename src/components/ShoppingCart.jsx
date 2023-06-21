@@ -53,6 +53,7 @@ export default function ShoppingCart({ onClose, isOpen }) {
                   my="2rem"
                   ml="1rem"
                   fontWeight="bold"
+                  fontSize="xl"
                   wordBreak="break-word"
                 >
                   Subtotal: €{Number(subtotal).toLocaleString('en-US')}
@@ -60,8 +61,13 @@ export default function ShoppingCart({ onClose, isOpen }) {
               </>
             ) : (
               <>
-                <Text my="5em">Your cart is empty. </Text>{' '}
-                <Icon as={FiShoppingCart} boxSize="10em" color="gray.100" my="20em" />
+                <Text my={{ base: '1em', md: '5em' }}>Your cart is empty. </Text>{' '}
+                <Icon
+                  as={FiShoppingCart}
+                  boxSize="10em"
+                  color="gray.100"
+                  my={{ base: '5em', md: '20em' }}
+                />
               </>
             )}
           </VStack>

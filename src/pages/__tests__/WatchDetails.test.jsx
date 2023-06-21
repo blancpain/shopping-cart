@@ -4,12 +4,12 @@ import { RouterProvider, createMemoryRouter, createRoutesFromElements } from 're
 import { CartProvider } from '../../ShoppingCartContext';
 import routesConfig from '../../routes/RoutesConfig';
 
-describe('Navbar navigation', () => {
+describe('WatchDetails page functionality', () => {
   const router = createMemoryRouter(createRoutesFromElements(routesConfig()), {
-    initialEntries: ['/'],
+    initialEntries: ['/shop/1'],
   });
 
-  it('click correctly goes to /contact', async () => {
+  it('adding items to bag correctly shows item quantity on Navbar', async () => {
     const user = userEvent.setup();
     render(
       <CartProvider>
@@ -17,8 +17,9 @@ describe('Navbar navigation', () => {
       </CartProvider>,
     );
 
-    await user.click(screen.getByText(/Contact/i));
+    await user.click(screen.getByText(/Add to cart/i));
+    await user.click(screen.getByText(/Add to cart/i));
 
-    expect(screen.getByText(/get in touch/i)).toBeInTheDocument();
+    expect(screen.getByTestId('navbar-cart-quantity').textContent).toBe(String(2));
   });
 });

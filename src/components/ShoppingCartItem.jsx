@@ -23,7 +23,7 @@ export default function ShoppingCartItem({
 }) {
   const convertedWatchImageURL = `../${watchImage}`;
 
-  const { addToCart, removeFromCart, updateQuantity, items } = useContext(CartContext);
+  const { addToCart, removeFromCart, updateQuantity } = useContext(CartContext);
   const buttonClickHandler = (e) => {
     const { name } = e.target;
 
@@ -60,6 +60,7 @@ export default function ShoppingCartItem({
           borderRadius="lg"
           boxSize="10em"
           objectFit="cover"
+          data-testid="shopping-cart-item-container-image"
         />
         <Stack mt="6" spacing="3">
           <Heading size="md">{watchModel}</Heading>
@@ -77,6 +78,7 @@ export default function ShoppingCartItem({
             flexGrow="10"
             name="del"
             onClick={buttonClickHandler}
+            data-testid="shopping-cart-del-btn"
           >
             -
           </Button>
@@ -87,6 +89,7 @@ export default function ShoppingCartItem({
             value={quantity}
             onKeyDown={handleKeyDown}
             onChange={inputHandler}
+            data-testid="shopping-cart-item-quantity"
           />
           <Button
             variant="solid"
@@ -95,6 +98,7 @@ export default function ShoppingCartItem({
             name="add"
             onClick={buttonClickHandler}
             bg="gray.300"
+            data-testid="shopping-cart-add-btn"
           >
             +
           </Button>
