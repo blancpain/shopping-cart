@@ -54,6 +54,7 @@ export function CartProvider({ children }) {
   };
 
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <CartContext.Provider value={{ items, addToCart, removeFromCart, updateQuantity }}>
       {children}
     </CartContext.Provider>

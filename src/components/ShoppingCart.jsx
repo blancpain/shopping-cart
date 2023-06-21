@@ -30,6 +30,11 @@ export default function ShoppingCart({ onClose, isOpen }) {
     />
   ));
 
+  const subtotal = items.reduce(
+    (accumulator, object) => accumulator + object.quantity * object.price,
+    0,
+  );
+
   return (
     <Drawer placement="right" onClose={onClose} isOpen={isOpen} size="lg">
       <DrawerOverlay />
@@ -41,7 +46,18 @@ export default function ShoppingCart({ onClose, isOpen }) {
         <DrawerBody display="flex" flexDirection="column" gap="10px" justifyContent="space-between">
           <VStack>
             {allItems.length > 0 ? (
-              allItems
+              <>
+                {allItems}
+                <Text
+                  alignSelf="flex-start"
+                  my="2rem"
+                  ml="1rem"
+                  fontWeight="bold"
+                  wordBreak="break-word"
+                >
+                  Subtotal: €{Number(subtotal).toLocaleString('en-US')}
+                </Text>
+              </>
             ) : (
               <>
                 <Text my="5em">Your cart is empty. </Text>{' '}
@@ -50,12 +66,12 @@ export default function ShoppingCart({ onClose, isOpen }) {
             )}
           </VStack>
           {allItems.length > 0 ? (
-            <Button as={NavLink} to="/" m="15px" onClick={onClose}>
+            <Button as={NavLink} to="/" m="15px" onClick={onClose} fontSize="xl">
               Checkout
             </Button>
           ) : (
-            <Button as={NavLink} to="/shop" m="15px" onClick={onClose}>
-              Browse shop
+            <Button as={NavLink} to="/shop" m="15px" onClick={onClose} fontSize="xl">
+              Browse Shop
             </Button>
           )}
         </DrawerBody>

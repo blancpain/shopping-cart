@@ -23,7 +23,7 @@ export default function ShoppingCartItem({
 }) {
   const convertedWatchImageURL = `../${watchImage}`;
 
-  const { addToCart, removeFromCart, updateQuantity } = useContext(CartContext);
+  const { addToCart, removeFromCart, updateQuantity, items } = useContext(CartContext);
   const buttonClickHandler = (e) => {
     const { name } = e.target;
 
@@ -51,8 +51,6 @@ export default function ShoppingCartItem({
     }
   };
 
-  // TODO - Array.reduce for total sum price * quantity ...
-
   return (
     <CardContainer maxW="sm" m="0.5rem">
       <CardBody as={Flex}>
@@ -77,10 +75,10 @@ export default function ShoppingCartItem({
             variant="solid"
             colorScheme="gray"
             flexGrow="10"
-            name="add"
+            name="del"
             onClick={buttonClickHandler}
           >
-            +
+            -
           </Button>
           <Input
             type="number"
@@ -94,10 +92,11 @@ export default function ShoppingCartItem({
             variant="solid"
             colorScheme="gray"
             flexGrow="10"
-            name="del"
+            name="add"
             onClick={buttonClickHandler}
+            bg="gray.300"
           >
-            -
+            +
           </Button>
         </Flex>
       </CardFooter>
