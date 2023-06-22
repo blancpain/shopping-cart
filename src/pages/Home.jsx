@@ -16,6 +16,7 @@ export default function Home() {
         autoPlay
         loop
         muted
+        playsinline
         sx={videoStyles}
         src="assets/introVideo.mp4"
         alt="Video of watch mechanism"
