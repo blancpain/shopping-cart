@@ -15,10 +15,8 @@ export default function Home() {
         as="video"
         autoPlay
         loop
-        muted
-        playsinline
         sx={videoStyles}
-        src="assets/introVideo.mp4"
+        src="assets/watch-vid.mp4"
         alt="Video of watch mechanism"
       />
       <AbsoluteCenter>
